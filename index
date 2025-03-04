@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f4f4f4; }
+        .container {
+            max-width: 300px; 
+            margin: auto; 
+            padding: 20px; 
+            border: 2px solid #000; 
+            border-radius: 10px; }
+        input, button { 
+            margin: 5px;
+            padding: 10px;
+            font-size: 18px; }
+        #wynik {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="liczba" placeholder="Liczba">
+        <br>
+        <button onclick="oblicz('sqrt')">√</button>
+        <button onclick="oblicz('pow')">x²</button>
+        <button onclick="oblicz('abs')">|x|</button>
+        <button onclick="resetuj()">Resetuj</button>
+        <br>
+        <div id="wynik"></div>
+    </div>
+<script>
+    function oblicz(operacja) {
+        let liczba = parseFloat(document.getElementById('liczba').value);
+        let wynik;
+
+        if (isNaN(liczba)) {
+            document.getElementById("wynik").innerText = "Podaj poprawną liczbę!";
+            return; }
+
+        switch (operacja) {
+            case 'sqrt': 
+              wynik = Math.sqrt(liczba);
+              break;
+            case 'pow':
+              wynik = Math.pow(liczba, 2);
+              break;
+            case 'abs': 
+              wynik = Math.abs(liczba);
+              break;
+            default: wynik = "Błąd"; }
+
+        document.getElementById("wynik").textContent = wynik;
+        document.getElementById("wynik").style.color = "green";
+        document.getElementById("wynik").style.fontSize = "24px";
+        document.getElementById("wynik").style.fontWeight = "bold";
+    }
+    function resetuj() {
+        document.getElementById('liczba').value = "";
+        document.getElementById('wynik').innerText = "";
+    }
+</script>
+</body>
+</html>
+
+
+        
