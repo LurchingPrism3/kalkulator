@@ -35,6 +35,9 @@
         <div id="wynik"></div>
     </div>
 <script>
+    var tytuł = "Kalkulator"
+    document.write(tytuł.bold().fontcolor("green").italics().fontsize("25px").link("https://lurchingprism3.github.io/kalkulator/"));
+    
     function oblicz(operacja) {
         let liczba = parseFloat(document.getElementById('liczba').value);
         let wynik;
@@ -55,7 +58,7 @@
               break;
             default: wynik = "Błąd"; }
 
-        document.write(wynik.bold().fontcolor("green").fontsize("25px").italics().fixed(2));
+        document.getElementById("wynik").textContent="Wynik: "+wynik;
     }
     function resetuj() {
         document.getElementById('liczba').value = "";
